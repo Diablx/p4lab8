@@ -39,10 +39,10 @@ namespace p4lab8
                 MessageBox.Show("Passwords are different.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                    return;
             }
-            if (_registrationViewModel.TermsAccepted != true)
+            if (!_registrationViewModel.TermsAccepted)
             {
                 MessageBox.Show("terms not accepted");
-                return;
+                    return;
             }
             else
             {
@@ -54,6 +54,7 @@ namespace p4lab8
                     TermsAcceptanceDate = DateTime.Now,
                 };
                 MessageBox.Show("added user XDD");
+                DataContext = new RegistrationViewModel();
             }
         }
     }
